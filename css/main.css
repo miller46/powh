@@ -41,12 +41,18 @@ html {
 }
 
 #lookup_container {
-    margin: 32px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
 }
 
 #user_container {
     margin-top: 32px;
     margin-bottom: 32px;
+}
+
+#tx_table th {
+    text-align: center;
 }
 /*
  * Remove text-shadow in selection highlight:

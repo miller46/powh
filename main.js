@@ -22,6 +22,39 @@ web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddre
         loadData();
 
         setInterval(loadData, 3000);
+
+        web3.eth.filter("latest").watch(function(err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(result);
+                web3.eth.getBlock(result, true, function(err, result) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(result);
+                        var txs = result.transactions;
+                        for (var i = 0; i < txs.length; i++) {
+                            var tx = txs[i];
+                            if (tx.to) {
+                                if (tx.to.toLowerCase() === config.contractAddress.toLowerCase()) {
+                                    var txLink = "<a target='_blank' href='https://etherscan.io/tx/" + tx.hash + "'>View</a>";
+                                    var userLink = "<a target='_blank' href='https://etherscan.io/address/" + tx.from + "'>" + tx.from + "</a>";
+                                    var input = tx.input;
+                                    var action = "<td class='profit'>BUY</td>";
+                                    if (tx.value.toNumber() && input.indexOf("0xb1e35242") > -1) {
+                                        action = "<td class='loss'>WEAK HANDS</td>";
+                                    }
+                                    var amount = web3Utility.weiToEth(tx.value.toNumber(), undefined, 4);
+
+                                    $('#tx_table tr:last').after('<tr><td>' + txLink + '</td><td>' + userLink + '</td>' + action + '<td>' + amount + ' ETH</td></tr>');
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
     }
 });
 

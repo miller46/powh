@@ -35,7 +35,6 @@
                     </div>
                 </div>
 
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h1>Proof of Weak Hands Price Tracker</h1>
@@ -69,7 +68,7 @@
                                 <form class="form-inline">
                                     <div class="form-group">
                                         <!--<label class="sr-only" for="balance_address">Address</label>-->
-                                        <input style="width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
+                                        <input style="min-width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
                                     </div>
                                     <button type="button" id="lookup" class="btn btn-info">View Your Balances</button>
                                 </form>
@@ -103,7 +102,27 @@
                         <hr>
 
                         <div>
-
+                            <h2>Latest Transactions</h2>
+                            <div class="table-responsive">
+                                <table id="tx_table" class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>From</th>
+                                        <th>Action</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr style="display: none">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
@@ -114,7 +133,7 @@
                         <div>
                             <b>ETH</b>: 0x925F0100bf599fdA39f99B00591497A55929F9F5
                         </div>
-                        <div>
+                        <div style="text-overflow: ellipsis;">
                             <b>XMR</b>: 41hsvi1Z3G1B3JGJGnnbwXjiMzmVSKPrSNaogoFgmyJxLaLxMtZ1aLKbFWbvWSqv1jTz3UvkczxiYUAvbw9xkaNQDSe7bU8
                         </div>
                     </div>
