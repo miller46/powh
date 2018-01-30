@@ -329,7 +329,10 @@ var tokenPrice;
 var userCookie = cookieUtility.readCookie(config.userCookie);
 if (userCookie) {
     userCookie = JSON.parse(userCookie);
-    $('#balance_address').val(userCookie["address"]);
+    var address = userCookie["address"]
+    $('#balance_address').val(address);
+
+    lookupAddress(address)
 }
 
 web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddress, function(err, contract) {
@@ -360,8 +363,12 @@ web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddre
                                     var txLink = "<a target='_blank' href='https://etherscan.io/tx/" + tx.hash + "'>View</a>";
                                     var userLink = "<a target='_blank' href='https://etherscan.io/address/" + tx.from + "'>" + tx.from + "</a>";
                                     var input = tx.input;
-                                    var action = "<td class='profit'>BUY</td>";
-                                    if (tx.value.toNumber() && input.indexOf("0xb1e35242") > -1) {
+                                    var action = "<td>Internal Tx</td>";
+                                    if (tx.value.toNumber() > 0) {
+                                        var action = "<td class='profit'>BUY</td>";
+                                    } else if (input.indexOf("0xb1e35242") > -1) {
+                                        action = "<td class='loss'>WEAK HANDS</td>";
+                                    } else if (input.indexOf("0x2e1a7d4d") > -1) {
                                         action = "<td class='loss'>WEAK HANDS</td>";
                                     }
                                     var amount = web3Utility.weiToEth(tx.value.toNumber(), undefined, 4);
@@ -435,24 +442,28 @@ $('#lookup').click(function() {
     if (!address) {
         // TODO show error
     } else {
-        var data = {
-            "address": address
-        };
-        cookieUtility.createCookie(config.userCookie, JSON.stringify(data), 999);
-
-        $('#user_address').text(address);
-        web3Utility.call(web3, powhContract, config.contractAddress, 'balanceOf', [address], function (err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-                var balance = web3Utility.weiToEth(result.toNumber(), 1000000000000000, 4);
-                $('#balanceEth').text(balance);
-                $('#balanceUsd').text("$" + toDollars(balance * tokenPrice * usdPrice));
-
-                $('#values').show();
-            }
-        });
+        lookupAddress(address);
     }
+});
+
+function lookupAddress(address) {
+    var data = {
+        "address": address
+    };
+    cookieUtility.createCookie(config.userCookie, JSON.stringify(data), 999);
+
+    $('#user_address').text(address);
+    web3Utility.call(web3, powhContract, config.contractAddress, 'balanceOf', [address], function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            var balance = web3Utility.weiToEth(result.toNumber(), 1000000000000000, 4);
+            $('#balanceEth').text(balance);
+            $('#balanceUsd').text("$" + toDollars(balance * tokenPrice * usdPrice));
+
+            $('#values').show();
+        }
+    });
 
     web3Utility.call(web3, powhContract, config.contractAddress, 'dividends', [address], function (err, result) {
         if (err) {
@@ -465,7 +476,7 @@ $('#lookup').click(function() {
             $('#values').show();
         }
     });
-});
+}
 
 
 $('#sell').click(function() {
