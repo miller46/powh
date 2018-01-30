@@ -1,0 +1,1 @@
+browserify -t brfs main.js > js/bundle.js

@@ -1,0 +1,25 @@
+{
+    "name": "powh-client",
+    "version": "1.0.0",
+    "description": "front end powh",
+    "main": "main.js",
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "alertify": "^0.3.0",
+        "assert": "^1.4.1",
+        "async": "^2.0.0-rc.5",
+        "babelify": "^7.3.0",
+        "bignumber.js": "^2.4.0",
+        "body-parser": "^1.17.1",
+        "browserify": "^15.2.0",
+        "ethereumjs-tx": "^1.2.2",
+        "filereader": "^0.10.3",
+        "fs": "^0.0.2",
+        "js-sha256": "^0.3.0",
+        "keythereum": "^0.2.6",
+        "request": "^2.79.0",
+        "solc": "^0.4.2",
+        "web3": "^0.17.0-beta"
+    }
+}

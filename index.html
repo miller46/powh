@@ -1,0 +1,110 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>PoWH</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="img/icon.png">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <div>
+            <div class="container center">
+                <h1>Proof of Weak Hands</h1>
+                <a href="https://etherscan.io/address/0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a">0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a</a>
+            </div>
+
+            <div class="container">
+                <div class="center clearfix">
+                    <div class="col-md-4">
+                        <h2>Total ETH</h2>
+                        <div class="form-group">
+                            <label><span id="totalEth"></span>ETH - $<span id="totalEthUsd"></span> </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h2>Buy Price</h2>
+                        <div class="form-group">
+                            <label> <span id="buyPrice"> </span> ETH -- $<span id="buyPriceUsd"> </span></label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h2>Total Txs</h2>
+                        <div class="form-group">
+                            <label> <span id="totalTxs"> 8500 </span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div id="lookup_container" class="center clearfix">
+
+                    <div >
+
+                        <h2>Read Contract Data</h2>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <!--<label class="sr-only" for="balance_address">Address</label>-->
+                                <input style="width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
+                            </div>
+                            <button type="button" id="lookup" class="btn btn-default">Lookup</button>
+                        </form>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div id="values" style="display: none;" class="clearfix">
+                        <div class="center">
+                            <div id="user_container">
+                                <h4>Hands for: </h4> <h3 id="user_address"></h3>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>Balance</h2>
+                                <div class="form-group">
+                                    <div>
+                                        Shares <label id="balanceEth"></label>
+                                    </div>
+                                    <div>
+                                        $ <label id="balanceUsd"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h2>Dividend</h2>
+                                <div class="form-group">
+                                    <div>
+                                        ETH <label id="dividendEth"></label>
+                                    </div>
+                                    <div>
+                                        $ <label id="dividendUsd"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="js/vendor/plugins.js"></script>
+        <script src="js/bundle.js"></script>
+    </body>
+</html>
