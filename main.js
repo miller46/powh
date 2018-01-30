@@ -19,7 +19,9 @@ web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddre
     } else {
         powhContract = contract;
 
-        loadData()
+        loadData();
+
+        setInterval(loadData, 3000);
     }
 });
 
@@ -36,8 +38,11 @@ function loadData() {
                     console.log(err);
                 } else {
                     tokenPrice = 1/(web3Utility.weiToEth(result.toNumber(), undefined, 10) * 0.9)/1000000;
+
+                    setClassNameForPriceField("buyPrice", tokenPrice);
+
                     $('#buyPrice').text(tokenPrice.toFixed(6));
-                    $('#buyPriceUsd').text(toDollars(tokenPrice * usdPrice));
+                    $('#buyPriceUsd').text("$" + toDollars(tokenPrice * usdPrice));
                 }
             });
 
@@ -47,13 +52,30 @@ function loadData() {
                 } else {
                     var total = web3Utility.weiToEth(result.toNumber(), undefined, 4);
                     $('#totalEth').text(total);
-                    $('#totalEthUsd').text(toDollars(total * usdPrice));
+                    $('#totalEthUsd').text("$" + toDollars(total * usdPrice));
                 }
             });
 
             showScreen();
         }
     });
+}
+
+function setClassNameForPriceField(name, newPrice) {
+    var field = $('#' + name);
+    var fieldUsd = $('#' + name + "Usd");
+    var className = "normal";
+    var lastPrice = field.text();
+    if (lastPrice) {
+        lastPrice = parseFloat(lastPrice);
+        if (lastPrice - newPrice > 0.001) {
+            className = "loss";
+        } else if (newPrice - newPrice > 0.001) {
+            className = "profit";
+        }
+    }
+
+    field.parent().addClass(className);
 }
 
 $('#lookup').click(function() {
@@ -73,13 +95,11 @@ $('#lookup').click(function() {
             } else {
                 var balance = web3Utility.weiToEth(result.toNumber(), 1000000000000000, 4);
                 $('#balanceEth').text(balance);
-                $('#balanceUsd').text(toDollars(balance * tokenPrice * usdPrice));
+                $('#balanceUsd').text("$" + toDollars(balance * tokenPrice * usdPrice));
 
                 $('#values').show();
             }
         });
-
-        setInterval(loadData, 3000);
     }
 
     web3Utility.call(web3, powhContract, config.contractAddress, 'dividends', [address], function (err, result) {
@@ -88,7 +108,7 @@ $('#lookup').click(function() {
         } else {
             var dividends = web3Utility.weiToEth(result.toNumber());
             $('#dividendEth').text(dividends);
-            $('#dividendUsd').text(toDollars(dividends * usdPrice));
+            $('#dividendUsd').text("$" + toDollars(dividends * usdPrice));
 
             $('#values').show();
         }

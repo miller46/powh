@@ -28,12 +28,25 @@ html {
     text-align: center;
 }
 
+.profit {
+    color: #5cb85c;
+}
+
+.loss {
+    color: #d9534f;
+}
+
+.normal {
+    color: #222;
+}
+
 #lookup_container {
     margin: 32px;
 }
 
 #user_container {
-    margin: 32px;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 /*
  * Remove text-shadow in selection highlight:

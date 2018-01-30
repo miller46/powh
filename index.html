@@ -14,90 +14,106 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        <div class="container">
+            &nbsp;
+        </div>
 
-        <div>
-            <div class="container center">
-                <h1>Proof of Weak Hands</h1>
-                <a href="https://etherscan.io/address/0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a">0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a</a>
-            </div>
-
-            <div class="container">
-                <div class="center clearfix">
-                    <div class="col-md-4">
-                        <h2>Total ETH</h2>
-                        <div class="form-group">
-                            <label><span id="totalEth"></span>ETH - $<span id="totalEthUsd"></span> </label>
-                        </div>
+        <div class="container">
+            <div class="center clearfix">
+                <div>
+                    <div>
+                        <h2><b>WARNING: </b>This is a scam</h2>
                     </div>
 
-                    <div class="col-md-4">
-                        <h2>Buy Price</h2>
-                        <div class="form-group">
-                            <label> <span id="buyPrice"> </span> ETH -- $<span id="buyPriceUsd"> </span></label>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h2>Total Txs</h2>
-                        <div class="form-group">
-                            <label> <span id="totalTxs"> 8500 </span></label>
+                    <div>
+                        <div class="well" style="text-align: left;">
+                            <div>&nbsp;</div>
+                            <p><b>Q: Is this a scam?</b></p>
+                            <p>A: Yes, More accurately this is a game where you put cryptocurrency into trying to trick, fake out, or scam everyone else out of their cryptocurrency. Any value you deposit into this smart contract should purely be placed because you enjoy the concept and social experiment and wish to participate. For better or worse. </p>
+                            <p>Source: <a href="https://powhcoin.com/" target="_blank">https://powhcoin.com/</a></p>
                         </div>
                     </div>
                 </div>
 
-                <br>
-                <br>
 
-                <div id="lookup_container" class="center clearfix">
-
-                    <div >
-
-                        <h2>Read Contract Data</h2>
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <!--<label class="sr-only" for="balance_address">Address</label>-->
-                                <input style="width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
-                            </div>
-                            <button type="button" id="lookup" class="btn btn-default">Lookup</button>
-                        </form>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1>Proof of Weak Hands</h1>
+                        <a href="https://etherscan.io/address/0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a" target="_blank">0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a</a>
                     </div>
 
-                    <br>
-                    <br>
-
-                    <div id="values" style="display: none;" class="clearfix">
-                        <div class="center">
-                            <div id="user_container">
-                                <h4>Hands for: </h4> <h3 id="user_address"></h3>
-                            </div>
-                            <div class="col-md-6">
-                                <h2>Balance</h2>
-                                <div class="form-group">
-                                    <div>
-                                        Shares <label id="balanceEth"></label>
+                    <div class="panel-body">
+                            <div style="min-height: 128px;">
+                                <div class="col-md-6 center">
+                                    <h4>Total ETH</h4>
+                                    <div class="form-group">
+                                        <h2> <span id="totalEth"></span> ETH</h2>
+                                        <p id="totalEthUsd"></p>
                                     </div>
-                                    <div>
-                                        $ <label id="balanceUsd"></label>
+                                </div>
+
+                                <div class="col-md-6 center">
+                                    <h4>Buy Price</h4>
+                                    <div class="form-group">
+                                        <h2> <span id="buyPrice"></span> ETH</h2>
+                                        <p id="buyPriceUsd"> </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <h2>Dividend</h2>
-                                <div class="form-group">
-                                    <div>
-                                        ETH <label id="dividendEth"></label>
+                            <hr>
+                            <div id="lookup_container" class="center clearfix">
+                                <div>
+                                    <h2>Address</h2>
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <!--<label class="sr-only" for="balance_address">Address</label>-->
+                                            <input style="width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
+                                        </div>
+                                        <button type="button" id="lookup" class="btn btn-info">View Your Balances</button>
+                                    </form>
+                                </div>
+
+                                <div id="values" style="display: none;">
+
+                                    <div id="user_container">
+                                        <h5>Showing values for: </h5> <h4 id="user_address"></h4>
                                     </div>
-                                    <div>
-                                        $ <label id="dividendUsd"></label>
+
+                                    <div class="col-md-6 center">
+                                        <h4>Buy Balance</h4>
+                                        <div class="form-group">
+                                            <h2> <span id="balanceEth"></span> PoWH</h2>
+                                            <p id="balanceUsd"> </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 center">
+                                        <h4>Dividends</h4>
+                                        <div class="form-group">
+                                            <h2> <span id="dividendEth"></span> ETH</h2>
+                                            <p id="dividendUsd"> </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        <div>
+                            <p>Tips are welcome</p>
+                        </div>
+                        <div>
+                            <b>ETH</b>: 0x925F0100bf599fdA39f99B00591497A55929F9F5
+                        </div>
+                        <div>
+                            <b>XMR</b>: 41hsvi1Z3G1B3JGJGnnbwXjiMzmVSKPrSNaogoFgmyJxLaLxMtZ1aLKbFWbvWSqv1jTz3UvkczxiYUAvbw9xkaNQDSe7bU8
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
