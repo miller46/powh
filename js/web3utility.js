@@ -1,8 +1,6 @@
 var Web3 = require('web3');
 var config = (typeof(global.config) == 'undefined' && typeof(config) == 'undefined') ? require('../js/config.js') : global.config;
-var fs = require('fs');
 var request = require('request');
-var FileReader = require('filereader')
 var SolidityFunction = require('web3/lib/web3/function.js');
 
 function initWeb3(web3) {
@@ -102,7 +100,7 @@ function getPriceUsd(callback) {
 }
 
 function loadContract(web3, sourceCode, address, callback) {
-    readFile(sourceCode + '.abi', function(error, abi){
+    readFile(config.siteUrl + sourceCode + '.abi', function(error, abi){
         try {
             abi = JSON.parse(abi);
             var instance = web3.eth.contract(abi);
