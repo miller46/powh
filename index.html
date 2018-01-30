@@ -38,66 +38,73 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h1>Proof of Weak Hands</h1>
-                        <a href="https://etherscan.io/address/0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a" target="_blank">0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a</a>
+                        <h1>Proof of Weak Hands Scam Calculator</h1>
+                        Contract: <a href="https://etherscan.io/address/0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a" target="_blank">0xa7ca36f7273d4d38fc2aec5a454c497f86728a7a</a>
                     </div>
 
                     <div class="panel-body">
-                            <div style="min-height: 128px;">
-                                <div class="col-md-6 center">
-                                    <h4>Total ETH</h4>
+                        <div style="min-height: 128px;">
+                            <div class="col-md-6 center">
+                                <h4>Total ETH</h4>
+                                <div class="form-group">
+                                    <h2> <span id="totalEth"></span> ETH</h2>
+                                    <p id="totalEthUsd"></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 center">
+                                <h4>Buy Price</h4>
+                                <div class="form-group">
+                                    <h2> <span id="buyPrice"></span> ETH</h2>
+                                    <p id="buyPriceUsd"> </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div id="lookup_container" class="center clearfix">
+                            <div>
+                                <h2>Address</h2>
+                                <form class="form-inline">
                                     <div class="form-group">
-                                        <h2> <span id="totalEth"></span> ETH</h2>
-                                        <p id="totalEthUsd"></p>
+                                        <!--<label class="sr-only" for="balance_address">Address</label>-->
+                                        <input style="width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
+                                    </div>
+                                    <button type="button" id="lookup" class="btn btn-info">View Your Balances</button>
+                                </form>
+                            </div>
+
+                            <div id="values" style="display: none;">
+
+                                <div id="user_container">
+                                    <h5>Showing values for: </h5> <h4 id="user_address"></h4>
+                                </div>
+
+                                <div class="col-md-6 center">
+                                    <h4>Buy Balance</h4>
+                                    <div class="form-group">
+                                        <h2> <span id="balanceEth"></span> PoWH</h2>
+                                        <p id="balanceUsd"> </p>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 center">
-                                    <h4>Buy Price</h4>
+                                    <h4>Dividends</h4>
                                     <div class="form-group">
-                                        <h2> <span id="buyPrice"></span> ETH</h2>
-                                        <p id="buyPriceUsd"> </p>
+                                        <h2> <span id="dividendEth"></span> ETH</h2>
+                                        <p id="dividendUsd"> </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <hr>
-                            <div id="lookup_container" class="center clearfix">
-                                <div>
-                                    <h2>Address</h2>
-                                    <form class="form-inline">
-                                        <div class="form-group">
-                                            <!--<label class="sr-only" for="balance_address">Address</label>-->
-                                            <input style="width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
-                                        </div>
-                                        <button type="button" id="lookup" class="btn btn-info">View Your Balances</button>
-                                    </form>
-                                </div>
+                        </div>
 
-                                <div id="values" style="display: none;">
+                        <hr>
 
-                                    <div id="user_container">
-                                        <h5>Showing values for: </h5> <h4 id="user_address"></h4>
-                                    </div>
+                        <div>
 
-                                    <div class="col-md-6 center">
-                                        <h4>Buy Balance</h4>
-                                        <div class="form-group">
-                                            <h2> <span id="balanceEth"></span> PoWH</h2>
-                                            <p id="balanceUsd"> </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 center">
-                                        <h4>Dividends</h4>
-                                        <div class="form-group">
-                                            <h2> <span id="dividendEth"></span> ETH</h2>
-                                            <p id="dividendUsd"> </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                        </div>
                     </div>
 
                     <div class="panel-footer">

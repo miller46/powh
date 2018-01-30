@@ -338,6 +338,8 @@ web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddre
     } else {
         powhContract = contract;
 
+        loadData();
+
         setInterval(loadData, 3000);
     }
 });
@@ -385,18 +387,14 @@ function setClassNameForPriceField(name, newPrice) {
     var lastPrice = field.text();
     if (lastPrice) {
         lastPrice = parseFloat(lastPrice);
-        if (lastPrice - newPrice > 0.001) {
+        if (lastPrice - newPrice > 0.0001) {
             className = "loss";
-        } else if (newPrice - newPrice > 0.001) {
+        } else if (newPrice - newPrice > 0.0001) {
             className = "profit";
         }
     }
 
-    field.removeClass();
-    field.addClass(className);
-
-    fieldUsd.removeClass();
-    fieldUsd.addClass(className);
+    field.parent().addClass(className);
 }
 
 $('#lookup').click(function() {

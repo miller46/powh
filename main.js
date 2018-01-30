@@ -68,9 +68,9 @@ function setClassNameForPriceField(name, newPrice) {
     var lastPrice = field.text();
     if (lastPrice) {
         lastPrice = parseFloat(lastPrice);
-        if (lastPrice - newPrice > 0.001) {
+        if (lastPrice - newPrice > 0.0001) {
             className = "loss";
-        } else if (newPrice - newPrice > 0.001) {
+        } else if (newPrice - newPrice > 0.0001) {
             className = "profit";
         }
     }
