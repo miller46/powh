@@ -46,10 +46,8 @@ web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddre
                                     var input = tx.input;
                                     var action = "<td>Internal Tx</td>";
                                     if (tx.value.toNumber() > 0) {
-                                        var action = "<td class='profit'>BUY</td>";
-                                    } else if (input.indexOf("0xb1e35242") > -1) {
-                                        action = "<td class='loss'>WEAK HANDS</td>";
-                                    } else if (input.indexOf("0x2e1a7d4d") > -1) {
+                                        action = "<td class='profit'>BUY</td>";
+                                    } else {
                                         action = "<td class='loss'>WEAK HANDS</td>";
                                     }
                                     var amount = web3Utility.weiToEth(tx.value.toNumber(), undefined, 4);
