@@ -10,10 +10,8 @@ var tokenPrice;
 var userCookie = cookieUtility.readCookie(config.userCookie);
 if (userCookie) {
     userCookie = JSON.parse(userCookie);
-    var address = userCookie["address"]
+    var address = userCookie["address"];
     $('#balance_address').val(address);
-
-    lookupAddress(address)
 }
 
 web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddress, function(err, contract) {
@@ -21,6 +19,13 @@ web3Utility.loadContract(web3, config.contractFileNameBase, config.contractAddre
         console.log(err);
     } else {
         powhContract = contract;
+
+        var userCookie = cookieUtility.readCookie(config.userCookie);
+        if (userCookie) {
+            userCookie = JSON.parse(userCookie);
+            var address = userCookie["address"];
+            lookupAddress(address);
+        }
 
         loadData();
 
