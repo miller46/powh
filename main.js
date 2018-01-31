@@ -10,8 +10,11 @@ var tokenPrice;
 var address = getSavedAddress();
 if (address) {
     $('#balance_address').val(address);
-} else if (web3.eth.defaultAccount) {
-    $('#balance_address').val(web3.eth.defaultAccount);
+} else {
+    var account = web3.eth.accounts[0]
+    if (account) {
+        $('#balance_address').val(account);
+    }
 }
 
 function getSavedAddress() {
