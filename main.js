@@ -49,7 +49,7 @@ function watchForLatestTransactions() {
         } else {
             var blockNumber = result;
             var options = {
-                fromBlock: blockNumber - 25,
+                fromBlock: blockNumber - 50,
                 address: config.contractAddress,
             };
             var filter = web3.eth.filter(options);

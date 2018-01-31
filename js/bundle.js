@@ -326,8 +326,6 @@ var powhContract;
 var usdPrice;
 var tokenPrice;
 
-var addressValid = false;
-
 var address = getSavedAddress();
 if (address) {
     $('#balance_address').val(address);
@@ -370,7 +368,7 @@ function watchForLatestTransactions() {
         } else {
             var blockNumber = result;
             var options = {
-                fromBlock: blockNumber - 25,
+                fromBlock: blockNumber - 50,
                 address: config.contractAddress,
             };
             var filter = web3.eth.filter(options);
