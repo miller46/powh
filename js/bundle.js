@@ -326,6 +326,8 @@ var powhContract;
 var usdPrice;
 var tokenPrice;
 
+var addressValid = false;
+
 var address = getSavedAddress();
 if (address) {
     $('#balance_address').val(address);
@@ -433,7 +435,7 @@ function loadData() {
             $('.usdPrice').show();
 
             var address = getSavedAddress();
-            if (address) {
+            if (address && web3.isAddress(address)) {
                 lookupAddress(address);
             } else if (web3.eth.defaultAccount) {
                 lookupAddress(web3.eth.defaultAccount);
@@ -487,13 +489,19 @@ function setClassNameForPriceField(name, newPrice) {
 $('#lookup').click(function() {
     var address = $('#balance_address').val();
     if (!address) {
-        // TODO show error
+        $('#address_error').text("Please enter the address you used to buy PoWHCoin");
+        $('#address_error').show();
+    } else if (!web3.isAddress(address)) {
+        $('#address_error').text("Please verify the address is correct");
+        $('#address_error').show();
     } else {
         lookupAddress(address);
     }
 });
 
 function lookupAddress(address) {
+    $('#address_error').hide();
+
     var data = {
         "address": address
     };
