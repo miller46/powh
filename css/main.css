@@ -54,6 +54,16 @@ html {
 #tx_table th {
     text-align: center;
 }
+
+.well-titlebar {
+    overflow:hidden;
+}
+
+.col-md-4, .col-md-6 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301

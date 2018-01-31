@@ -22,7 +22,7 @@
             <div class="center clearfix">
                 <div>
                     <div>
-                        <h2><b>WARNING: </b>This is a scam</h2>
+                        <h4><b>WARNING: </b>This is a scam</h4>
                     </div>
 
                     <div>
@@ -64,11 +64,11 @@
 
                         <div id="lookup_container" class="center clearfix">
                             <div>
-                                <h2>Address</h2>
+                                <h2>Your Wallet Address</h2>
                                 <form class="form-inline">
                                     <div class="form-group">
                                         <!--<label class="sr-only" for="balance_address">Address</label>-->
-                                        <input style="min-width: 360px;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
+                                        <input style="min-width: 360px; max-width: 100%;" name="balance_address" type="text" autocomplete="on" class="form-control" id="balance_address" placeholder="0x...">
                                     </div>
                                     <button type="button" id="lookup" class="btn btn-info">View Your Balances</button>
                                 </form>
@@ -76,23 +76,34 @@
 
                             <div id="values" style="display: none;">
 
+                                <br>
+                                <br>
+                                
                                 <div id="user_container">
                                     <h5>Showing values for: </h5> <h4 id="user_address"></h4>
                                 </div>
 
-                                <div class="col-md-6 center">
-                                    <h4>Buy Balance</h4>
+                                <div class="col-md-4 center">
+                                    <h4>Balance</h4>
                                     <div class="form-group">
                                         <h2> <span id="balanceEth"></span> PoWH</h2>
                                         <p id="balanceUsd"> </p>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 center">
+                                <div class="col-md-4 center">
                                     <h4>Dividends</h4>
                                     <div class="form-group">
                                         <h2> <span id="dividendEth"></span> ETH</h2>
                                         <p id="dividendUsd"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 center">
+                                    <h4>Share Worth</h4>
+                                    <div class="form-group">
+                                        <h2> <span id="shareWorth"></span> ETH</h2>
+                                        <p id="shareWorthUsd"> </p>
                                     </div>
                                 </div>
                             </div>
@@ -106,20 +117,20 @@
                             <div class="table-responsive">
                                 <table id="tx_table" class="table table-striped">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>From</th>
-                                        <th>Action</th>
-                                        <th>Amount</th>
-                                    </tr>
+                                        <tr>
+                                            <th>Age</th>
+                                            <th>From</th>
+                                            <th>Action</th>
+                                            <th>Amount</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <tr style="display: none">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                        <tr style="display: none">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -128,13 +139,13 @@
 
                     <div class="panel-footer">
                         <div>
-                            <p>Tips are welcome</p>
+                            <h4>Tips are welcome</h4>
                         </div>
                         <div>
-                            <b>ETH</b>: 0x925F0100bf599fdA39f99B00591497A55929F9F5
+                            <p><b>ETH</b>: 0x925F0100bf599fdA39f99B00591497A55929F9F5 </p>
                         </div>
-                        <div style="text-overflow: ellipsis;">
-                            <b>XMR</b>: 41hsvi1Z3G1B3JGJGnnbwXjiMzmVSKPrSNaogoFgmyJxLaLxMtZ1aLKbFWbvWSqv1jTz3UvkczxiYUAvbw9xkaNQDSe7bU8
+                        <div>
+                            <p style="overflow: auto; text-overflow: ellipsis;"><b>XMR</b>: 41hsvi1Z3G1B3JGJGnnbwXjiMzmVSKPrSNaogoFgmyJxLaLxMtZ1aLKbFWbvWSqv1jTz3UvkczxiYUAvbw9xkaNQDSe7bU8 </p>
                         </div>
                     </div>
                 </div>
