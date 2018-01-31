@@ -64,6 +64,11 @@ html {
     padding-bottom: 8px;
 }
 
+@media only screen and (max-width: 767px) {
+    #balance_address {
+        text-align: center;
+    }
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
