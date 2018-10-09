@@ -510,7 +510,7 @@ function lookupAddress(address) {
         if (err) {
             console.log(err);
         } else {
-            var balance = web3Utility.weiToEth(result.toNumber());
+            var balance = result.toNumber() / Math.pow(10, 18);
             $('#balanceEth').text(balance.toFixed(4));
             $('#balanceUsd').text("$" + toDollars(balance * tokenPrice * usdPrice));
 
