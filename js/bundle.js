@@ -82,9 +82,9 @@ function initWeb3(web3) {
 }
 
 function weiToEth(wei, divisor, decimal) {
-    if (!divisor) divisor = 1000000000000000000;
-    if (!decimal) decimal = 3;
-    return (wei/divisor).toFixed(decimal);
+	if (!divisor) divisor = 1000000000000000000;
+	if (!decimal) decimal = 3;
+	return (wei/divisor).toFixed(decimal);
 }
 
 function ethToWei(eth, divisor, precision) {
@@ -418,7 +418,7 @@ function addTxToTableIfNecessary(tx) {
         } else {
             action = "<td class='loss'>WEAK HANDS</td>";
         }
-        var amount = web3Utility.weiToEth(tx.value.toNumber(), undefined, 4);
+        var amount = web3Utility.weiToEth(tx.value.toNumber(), 4);
 
         $('#tx_table tbody tr:first').before('<tr><td>' + timeAgo + '</td><td>' + userLink + '</td>' + action + '<td>' + amount + ' ETH</td></tr>');
     }
@@ -443,7 +443,7 @@ function loadData() {
                 if (err) {
                     console.log(err);
                 } else {
-                    tokenPrice = web3Utility.weiToEth(result.toNumber());
+                    tokenPrice = result.toNumber() / Math.pow(10, 18);
 
                     setClassNameForPriceField("buyPrice", tokenPrice);
 
@@ -518,12 +518,12 @@ function lookupAddress(address) {
                 if (err) {
                     console.log(err);
                 } else {
-                    var sellPrice = web3Utility.weiToEth(result.toNumber());
+                    var sellPrice = result.toNumber() / Math.pow(10, 18);
                     var shareWorth = balance * sellPrice;
 
                     setClassNameForPriceField("shareWorth", shareWorth);
 
-                    $('#shareWorth').text(shareWorth.toFixed(6));
+                    $('#shareWorth').text(shareWorth.toFixed(4));
                     $('#shareWorthUsd').text("$" + toDollars(shareWorth * usdPrice));
                 }
             });
@@ -536,7 +536,7 @@ function lookupAddress(address) {
         if (err) {
             console.log(err);
         } else {
-            var dividends = web3Utility.weiToEth(result.toNumber());
+            var dividends = result.toNumber() / Math.pow(10, 18);
             $('#dividendEth').text(dividends);
             $('#dividendUsd').text("$" + toDollars(dividends * usdPrice));
 
