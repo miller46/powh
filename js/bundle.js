@@ -537,7 +537,7 @@ function lookupAddress(address) {
             console.log(err);
         } else {
             var dividends = result.toNumber() / Math.pow(10, 18);
-            $('#dividendEth').text(dividends);
+            $('#dividendEth').text(dividends.toFixed(4));
             $('#dividendUsd').text("$" + toDollars(dividends * usdPrice));
 
             $('#values').show();
