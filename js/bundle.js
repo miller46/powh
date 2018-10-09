@@ -4,7 +4,7 @@ var config = {
     "isTestnet": false,
     "siteUrl": "https://miller46.github.io/powh/",
     "contractFileNameBase": "contract/powh",
-    "contractAddress": "0xA7CA36F7273D4d38fc2aEC5A454C497F86728a7A",
+    "contractAddress": "0xb3775fb83f7d12a36e0475abdd1fca35c091efbe",
     "etherscanApiKey": "JEEFXW352DSRW9JX9J549YQ91I5Y29SNHK",
     "defaultWeb3Provider": "https://mainnet.infura.io/ciBBPCkyQfaUNJHDiCMJ",
     "userCookie": "powh-cookie",
