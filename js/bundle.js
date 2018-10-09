@@ -418,9 +418,9 @@ function addTxToTableIfNecessary(tx) {
         } else {
             action = "<td class='loss'>WEAK HANDS</td>";
         }
-        var amount = web3Utility.weiToEth(tx.value.toNumber(), 4);
+        var amount = tx.value.toNumber() / Math.pow(10, 18);
 
-        $('#tx_table tbody tr:first').before('<tr><td>' + timeAgo + '</td><td>' + userLink + '</td>' + action + '<td>' + amount + ' ETH</td></tr>');
+        $('#tx_table tbody tr:first').before('<tr><td>' + timeAgo + '</td><td>' + userLink + '</td>' + action + '<td>' + amount.toFixed(2) + ' ETH</td></tr>');
     }
 }
 
