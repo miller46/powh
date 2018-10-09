@@ -443,7 +443,7 @@ function loadData() {
                 if (err) {
                     console.log(err);
                 } else {
-                    tokenPrice = 1/(web3Utility.weiToEth(result.toNumber(), undefined, 10) * 0.9)/1000000;
+                    tokenPrice = weiToEth(result.toNumber());
 
                     setClassNameForPriceField("buyPrice", tokenPrice);
 
