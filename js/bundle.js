@@ -532,7 +532,7 @@ function lookupAddress(address) {
         }
     });
 
-    web3Utility.call(web3, powhContract, config.contractAddress, 'dividends', [address], function (err, result) {
+    web3Utility.call(web3, powhContract, config.contractAddress, 'dividendsOf', [address], function (err, result) {
         if (err) {
             console.log(err);
         } else {
