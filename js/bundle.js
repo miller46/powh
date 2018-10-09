@@ -443,7 +443,7 @@ function loadData() {
                 if (err) {
                     console.log(err);
                 } else {
-                    tokenPrice = weiToEth(result.toNumber());
+                    tokenPrice = web3Utility.weiToEth(result.toNumber());
 
                     setClassNameForPriceField("buyPrice", tokenPrice);
 
@@ -510,7 +510,7 @@ function lookupAddress(address) {
         if (err) {
             console.log(err);
         } else {
-            var balance = result.toNumber() / Math.pow(10, 15);
+            var balance = web3Utility.weiToEth(result.toNumber());
             $('#balanceEth').text(balance.toFixed(4));
             $('#balanceUsd').text("$" + toDollars(balance * tokenPrice * usdPrice));
 
@@ -518,7 +518,7 @@ function lookupAddress(address) {
                 if (err) {
                     console.log(err);
                 } else {
-                    var sellPrice = result.toNumber() / Math.pow(10, 18);
+                    var sellPrice = web3Utility.weiToEth(result.toNumber());
                     var shareWorth = balance * sellPrice;
 
                     setClassNameForPriceField("shareWorth", shareWorth);
@@ -536,7 +536,7 @@ function lookupAddress(address) {
         if (err) {
             console.log(err);
         } else {
-            var dividends = web3Utility.weiToEth(result.toNumber(), undefined, 6);
+            var dividends = web3Utility.weiToEth(result.toNumber());
             $('#dividendEth').text(dividends);
             $('#dividendUsd').text("$" + toDollars(dividends * usdPrice));
 
